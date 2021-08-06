@@ -1,0 +1,21 @@
+name: Build and Test
+on: [push]
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Set up Java
+        uses: actions/setup-java@v2.1.0
+        with:
+          distribution: 'adopt' # See 'Supported distributions' for available options
+          java-version: '15.x'
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v1
+        with:
+          channel: 'stable' # or: 'beta', 'dev' or 'master'
+      - run: flutter pub get
+      - run: flutter dartfmt -n --set-exit-if-changed .
+      - run: flutter analyze
+      - run: flutter test
