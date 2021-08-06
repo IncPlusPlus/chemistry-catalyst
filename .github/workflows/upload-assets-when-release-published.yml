@@ -120,11 +120,11 @@ jobs:
           from_branch: main
           target_branch: heroku-deploy
           github_token: ${{ github.token }}
-      - name: Upload to Google Play internal testing track
-        uses: r0adkll/upload-google-play@v1
-        with:
-          serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
-          packageName: io.github.incplusplus.chem_catalyst
-          releaseFiles: app-release.aab
-          track: beta
+#      - name: Upload to Google Play internal testing track
+#        uses: r0adkll/upload-google-play@v1
+#        with:
+#          serviceAccountJsonPlainText: ${{ secrets.SERVICE_ACCOUNT_JSON }}
+#          packageName: io.github.incplusplus.chem_catalyst
+#          releaseFiles: app-release.aab
+#          track: beta
 #          whatsNewDirectory: distribution/whatsnew
