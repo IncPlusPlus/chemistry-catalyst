@@ -24,7 +24,12 @@ class AppDrawer extends StatelessWidget {
             onTap: () =>
                 Navigator.pushReplacementNamed(context, SecondScreen.routeName),
           ),
-          // _createDrawerItem(icon: Icons.note, text: 'Notes',),
+          _createDrawerItem(
+            icon: Icons.note,
+            text: 'Notes',
+            onTap: () =>
+                Navigator.pushReplacementNamed(context, TextScreen.routeName),
+          ),
           // Divider(),
           // _createDrawerItem(icon: Icons.collections_bookmark, text: 'Steps'),
           // _createDrawerItem(icon: Icons.face, text: 'Authors'),

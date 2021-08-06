@@ -5,5 +5,6 @@ class Routes {
   static Map<String, WidgetBuilder> routes = {
     HomePage.routeName: (context) => const HomePage(),
     SecondScreen.routeName: (context) => const SecondScreen(),
+    TextScreen.routeName: (context) => TextScreen(),
   };
 }
