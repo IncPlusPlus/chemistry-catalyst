@@ -58,7 +58,7 @@ class _TextScreenState extends State<TextScreen> {
 
   void _printLatestValue() {
     setState(() {
-      yValue = int.parse(myController.text) * xValue;
+      yValue = (myController.text == "" ? 0 : int.parse(myController.text)) * xValue;
     });
     print('Second text field: ${myController.text}');
   }
