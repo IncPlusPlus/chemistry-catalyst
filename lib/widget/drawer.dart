@@ -19,10 +19,10 @@ class AppDrawer extends StatelessWidget {
                 Navigator.pushReplacementNamed(context, HomePage.routeName),
           ),
           _createDrawerItem(
-            // icon: Icons.event,
-            text: 'Events',
+            icon: Icons.workspaces_filled,
+            text: 'Molar Mass',
             onTap: () =>
-                Navigator.pushReplacementNamed(context, SecondScreen.routeName),
+                Navigator.pushReplacementNamed(context, MolarMass.routeName),
           ),
           _createDrawerItem(
             icon: Icons.note,
