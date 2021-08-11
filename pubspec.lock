@@ -8,6 +8,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.6.1"
+  autocomplete_textfield_ns:
+    dependency: "direct main"
+    description:
+      name: autocomplete_textfield_ns
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   boolean_selector:
     dependency: transitive
     description:
@@ -94,7 +101,7 @@ packages:
       name: periodic_table
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.2"
+    version: "0.2.0"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -157,4 +164,4 @@ packages:
     source: hosted
     version: "2.1.0"
 sdks:
-  dart: ">=2.12.0 <3.0.0"
+  dart: ">=2.13.4 <3.0.0"
