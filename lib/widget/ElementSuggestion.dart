@@ -8,28 +8,29 @@ class ElementWidget extends StatefulWidget {
   @override
   ElementWidgetState createState() => ElementWidgetState();
 
-  ElementWidget({Key? key, required this.updateParentFunction}) : super(key: key);
+  ElementWidget({Key? key, required this.updateParentFunction})
+      : super(key: key);
 }
 
 class ElementWidgetState extends State<ElementWidget> {
   // Unused but this is required for the autocomplete API
-  var keyRequiredForAddSuggestion = GlobalKey<AutoCompleteTextFieldState<ChemicalElement>>();
-   ChemicalElement? selected;
+  var keyRequiredForAddSuggestion =
+      GlobalKey<AutoCompleteTextFieldState<ChemicalElement>>();
+  ChemicalElement? selected;
   ElementWidgetState();
 
-
   void submitAndPop(ChemicalElement selectedItem, BuildContext context) {
-    setState(() => {
-      selected = selectedItem
-    });
+    setState(() => {selected = selectedItem});
     widget.updateParentFunction(selectedItem);
     Navigator.of(context).pop(selectedItem);
   }
 
-  AutoCompleteTextField<ChemicalElement> _buildAutoCompleteTextField(BuildContext context) {
+  AutoCompleteTextField<ChemicalElement> _buildAutoCompleteTextField(
+      BuildContext context) {
     return AutoCompleteTextField(
       decoration: InputDecoration(
-          hintText: "Search for an element:", suffixIcon: Icon(Icons.search),
+        hintText: "Search for an element:",
+        suffixIcon: Icon(Icons.search),
       ),
       itemSubmitted: (item) => submitAndPop(item, context),
       key: keyRequiredForAddSuggestion,
@@ -43,7 +44,7 @@ class ElementWidgetState extends State<ElementWidget> {
       ),
       itemSorter: (a, b) => a.number.compareTo(b.number),
       itemFilter: (suggestion, query) =>
-      suggestion.symbol.toLowerCase().startsWith(query.toLowerCase()) ||
+          suggestion.symbol.toLowerCase().startsWith(query.toLowerCase()) ||
           suggestion.name.toLowerCase().startsWith(query.toLowerCase()),
     );
   }
@@ -58,9 +59,13 @@ class ElementWidgetState extends State<ElementWidget> {
               ListTile(
                 title: Text(selected?.symbol ?? "No symbol selected"),
                 trailing: Text(selected?.name ?? "No element selected"),
-                onTap: () => showDialog(context: context, builder: (context) {
-                  return AlertDialog(content: _buildAutoCompleteTextField(context));
-                },),
+                onTap: () => showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                        content: _buildAutoCompleteTextField(context));
+                  },
+                ),
               )
             ],
           ),
