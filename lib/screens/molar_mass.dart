@@ -59,42 +59,55 @@ class _MolarMassState extends State<MolarMass> {
       drawer: AppDrawer(),
       body: Column(
         children: [
-          SizedBox(height: 48),
-          AutoSizeText(
-            "Molar mass is ${_calculateMolarMass(elements)} g/mol",
-            style: TextStyle(fontSize: 24),
-            textAlign: TextAlign.center,
+          Padding(
+            padding: EdgeInsets.all(20),
+            child: AutoSizeText(
+              "Molar mass is ${_calculateMolarMass(elements)} g/mol",
+              style: TextStyle(fontSize: 24),
+              textAlign: TextAlign.center,
+            ),
           ),
-          SizedBox(height: 48),
           Flexible(
-            child: ListView.builder(
-              itemCount: elements.length,
-              itemBuilder: (context, index) => Row(
-                children: [
-                  Expanded(
-                      child: new ElementItem(element: elements[index].first)),
-                  Expanded(
-                    child: new TextField(
-                      decoration: InputDecoration(
-                          labelText:
-                              "# moles of ${elements[index].first.name}"),
-                      maxLength: 3,
-                      inputFormatters: <TextInputFormatter>[
-                        FilteringTextInputFormatter.digitsOnly
+            child: elements.isEmpty
+                ? Center(
+                    child: AutoSizeText(
+                      "Add an element to get started!",
+                      style: TextStyle(
+                        color: Theme.of(context).unselectedWidgetColor,
+                        fontSize: 24,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  )
+                : ListView.builder(
+                    itemCount: elements.length,
+                    itemBuilder: (context, index) => Row(
+                      children: [
+                        Expanded(
+                            child: new ElementItem(
+                                element: elements[index].first)),
+                        Expanded(
+                          child: new TextField(
+                            decoration: InputDecoration(
+                                labelText:
+                                    "# moles of ${elements[index].first.name}"),
+                            maxLength: 3,
+                            inputFormatters: <TextInputFormatter>[
+                              FilteringTextInputFormatter.digitsOnly
+                            ],
+                            keyboardType:
+                                TextInputType.numberWithOptions(decimal: false),
+                            onChanged: (value) => _setNumberOfElement(
+                                index, value == "" ? 0 : int.parse(value)),
+                          ),
+                        ),
+                        new IconButton(
+                          onPressed: () => _removeListItem(index),
+                          icon: Icon(Icons.remove),
+                        )
                       ],
-                      keyboardType:
-                          TextInputType.numberWithOptions(decimal: false),
-                      onChanged: (value) => _setNumberOfElement(
-                          index, value == "" ? 0 : int.parse(value)),
                     ),
                   ),
-                  new IconButton(
-                    onPressed: () => _removeListItem(index),
-                    icon: Icon(Icons.remove),
-                  )
-                ],
-              ),
-            ),
           ),
         ],
       ),
