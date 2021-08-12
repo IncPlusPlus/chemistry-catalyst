@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:periodic_table/periodic_table.dart';
 import 'package:more/tuple.dart';
 import 'package:decimal/decimal.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class MolarMass extends StatefulWidget {
   static const String routeName = '/2';
@@ -58,7 +59,13 @@ class _MolarMassState extends State<MolarMass> {
       drawer: AppDrawer(),
       body: Column(
         children: [
-          Text("Molar mass is (WRONG BTW) ${_calculateMolarMass(elements)}"),
+          SizedBox(height: 48),
+          AutoSizeText(
+            "Molar mass is ${_calculateMolarMass(elements)} g/mol",
+            style: TextStyle(fontSize: 24),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(height: 48),
           Flexible(
             child: ListView.builder(
               itemCount: elements.length,
