@@ -14,8 +14,8 @@ class ElementItem extends StatelessWidget {
             child: Column(
               children: [
                 ListTile(
-                  title: Text(element.symbol ?? "No symbol selected"),
-                  subtitle: Text(element.name ?? "No element selected"),
+                  title: Text(element.symbol),
+                  subtitle: Text(element.name),
                 )
               ],
             ),
