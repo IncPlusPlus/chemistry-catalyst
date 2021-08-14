@@ -38,7 +38,7 @@ class HomePage extends StatelessWidget {
               'You have pushed the button this many times:',
             ),
             Text(
-              '0 hundred',
+              '0 (this never increments. the button isn\'t hooked up to anything)',
               style: Theme.of(context).textTheme.headline4,
             ),
           ],
