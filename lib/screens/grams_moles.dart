@@ -1,6 +1,6 @@
 import 'package:chem_catalyst/model/element_item.dart';
 import 'package:chem_catalyst/util/calculation_helpers.dart';
-import 'package:chem_catalyst/util/unicode_helper.dart';
+import 'package:chem_catalyst/util/string_helpers.dart';
 import 'package:chem_catalyst/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -121,7 +121,7 @@ class _GramsMolesCalculatorState extends State<GramsMolesCalculator> {
           Padding(
             padding: EdgeInsets.all(20),
             child: AutoSizeText(
-              'You have ${calculatingFromGrams ? _calculateMolesFromGrams(elements, currentCalculationNumber) : _calculateGramsFromMoles(elements, currentCalculationNumber)} ${calculatingFromGrams ? "moles" : "grams"} of ${elements.isEmpty ? '...' : _compoundFormulaString(elements)}',
+              'You have ${calculatingFromGrams ? _calculateMolesFromGrams(elements, currentCalculationNumber) : _calculateGramsFromMoles(elements, currentCalculationNumber)} ${calculatingFromGrams ? "moles" : "grams"} of ${elements.isEmpty ? '...' : compoundFormulaString(elements)}',
               style: TextStyle(fontSize: 24),
               textAlign: TextAlign.center,
             ),
@@ -136,7 +136,7 @@ class _GramsMolesCalculatorState extends State<GramsMolesCalculator> {
               keyboardType: TextInputType.numberWithOptions(decimal: true),
               decoration: InputDecoration(
                 labelText:
-                    'Amount of ${elements.isEmpty ? '...' : _compoundFormulaString(elements)} in ${calculatingFromGrams ? "grams" : "moles"}',
+                    'Amount of ${elements.isEmpty ? '...' : compoundFormulaString(elements)} in ${calculatingFromGrams ? "grams" : "moles"}',
                 errorText: invalidInputNumber
                     ? 'Invalid input. Try a normal number.'
                     : null,
@@ -204,18 +204,4 @@ Decimal _calculateGramsFromMoles(
     List<Tuple2<ChemicalElement, int>> elementsAndQuantities,
     Decimal amountInMoles) {
   return calculateMolarMass(elementsAndQuantities) * amountInMoles;
-}
-
-String _compoundFormulaString(
-    List<Tuple2<ChemicalElement, int>> elementsAndQuantities) {
-  String out = '';
-  for (Tuple2<ChemicalElement, int> i in elementsAndQuantities) {
-    if (i.second > 0) {
-      out += i.first.symbol;
-    }
-    if (i.second > 1) {
-      out += UnicodeHelper.subScriptInteger(i.second);
-    }
-  }
-  return out;
 }
