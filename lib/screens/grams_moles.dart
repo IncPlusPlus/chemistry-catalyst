@@ -1,4 +1,5 @@
 import 'package:chem_catalyst/model/element_item.dart';
+import 'package:chem_catalyst/util/calculation_helpers.dart';
 import 'package:chem_catalyst/util/unicode_helper.dart';
 import 'package:chem_catalyst/widgets.dart';
 import 'package:flutter/material.dart';
@@ -193,26 +194,16 @@ class _GramsMolesCalculatorState extends State<GramsMolesCalculator> {
 Decimal _calculateMolesFromGrams(
     List<Tuple2<ChemicalElement, int>> elementsAndQuantities,
     Decimal amountInGrams) {
-  if (_calculateMolarMass(elementsAndQuantities) == Decimal.zero) {
+  if (calculateMolarMass(elementsAndQuantities) == Decimal.zero) {
     return Decimal.zero;
   }
-  return amountInGrams / _calculateMolarMass(elementsAndQuantities);
+  return amountInGrams / calculateMolarMass(elementsAndQuantities);
 }
 
 Decimal _calculateGramsFromMoles(
     List<Tuple2<ChemicalElement, int>> elementsAndQuantities,
     Decimal amountInMoles) {
-  return _calculateMolarMass(elementsAndQuantities) * amountInMoles;
-}
-
-Decimal _calculateMolarMass(
-    List<Tuple2<ChemicalElement, int>> elementsAndQuantities) {
-  Decimal out = Decimal.zero;
-  for (Tuple2<ChemicalElement, int> i in elementsAndQuantities) {
-    out += Decimal.parse(i.first.atomicMass.toString()) *
-        Decimal.fromInt(i.second);
-  }
-  return out;
+  return calculateMolarMass(elementsAndQuantities) * amountInMoles;
 }
 
 String _compoundFormulaString(
