@@ -33,6 +33,12 @@ class AppDrawer extends StatelessWidget {
                 context, GramsMolesCalculator.routeName),
           ),
           _createDrawerItem(
+            icon: Icons.science_outlined,
+            text: 'Solutions & Molarity',
+            onTap: () => Navigator.pushReplacementNamed(
+                context, SolutionsAndMolarity.routeName),
+          ),
+          _createDrawerItem(
             icon: Icons.note,
             text: 'Notes',
             onTap: () =>
