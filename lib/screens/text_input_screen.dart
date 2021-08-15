@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:periodic_table/periodic_table.dart';
 
 class TextScreen extends StatefulWidget {
-  static const String routeName = '/3';
+  static const String routeName = '/99';
 
   @override
   _TextScreenState createState() => _TextScreenState();
