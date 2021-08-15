@@ -1,5 +1,6 @@
 import 'package:chem_catalyst/screens.dart';
 import 'package:chem_catalyst/util/app_info.dart';
+import 'package:chem_catalyst/screens/grams_moles.dart';
 import 'package:flutter/material.dart';
 
 /// The app's drawer.
@@ -24,6 +25,12 @@ class AppDrawer extends StatelessWidget {
             text: 'Molar Mass',
             onTap: () =>
                 Navigator.pushReplacementNamed(context, MolarMass.routeName),
+          ),
+          _createDrawerItem(
+            icon: Icons.apps,
+            text: 'Grams <-> Moles',
+            onTap: () => Navigator.pushReplacementNamed(
+                context, GramsMolesCalculator.routeName),
           ),
           _createDrawerItem(
             icon: Icons.note,
