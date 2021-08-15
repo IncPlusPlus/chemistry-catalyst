@@ -1,5 +1,4 @@
 import 'package:chem_catalyst/model/element_item.dart';
-import 'package:chem_catalyst/widget/element_picker.dart';
 import 'package:chem_catalyst/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
