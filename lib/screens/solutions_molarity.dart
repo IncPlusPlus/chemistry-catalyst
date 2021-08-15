@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:chem_catalyst/model/element_item.dart';
+import 'package:chem_catalyst/util/string_helpers.dart';
 import 'package:chem_catalyst/widgets.dart';
 import 'package:decimal/decimal.dart';
 import 'package:flutter/material.dart';
@@ -42,7 +43,8 @@ class _SolutionsAndMolarityState extends State<SolutionsAndMolarity> {
         ),
         drawer: AppDrawer(),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Padding(
               padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
@@ -72,6 +74,16 @@ class _SolutionsAndMolarityState extends State<SolutionsAndMolarity> {
                     ],
                   ),
                 ],
+              ),
+            ),
+            Center(
+              child: AutoSizeText(
+                "Chemical in question is: ${compoundFormulaString(elements)}",
+                style: TextStyle(
+                  color: Theme.of(context).unselectedWidgetColor,
+                  fontSize: 24,
+                ),
+                textAlign: TextAlign.center,
               ),
             ),
             Flexible(
