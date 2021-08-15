@@ -1,4 +1,4 @@
-// import 'package:chem_catalyst/widget/element_picker.dart';
+// import 'package:chem_catalyst/widgets.dart';
 import 'package:chem_catalyst/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:periodic_table/periodic_table.dart';

@@ -1,6 +1,6 @@
 import 'package:chem_catalyst/routes.dart';
 import 'package:chem_catalyst/util/app_info.dart';
-import 'package:chem_catalyst/widget/atom_splash.dart';
+import 'package:chem_catalyst/widgets.dart';
 import 'package:flutter/material.dart';
 
 void main() {
