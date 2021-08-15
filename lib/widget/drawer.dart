@@ -1,4 +1,6 @@
 import 'package:chem_catalyst/screens.dart';
+import 'package:chem_catalyst/util/app_info.dart';
+import 'package:chem_catalyst/screens/grams_moles.dart';
 import 'package:flutter/material.dart';
 
 /// The app's drawer.
@@ -19,10 +21,16 @@ class AppDrawer extends StatelessWidget {
                 Navigator.pushReplacementNamed(context, HomePage.routeName),
           ),
           _createDrawerItem(
-            // icon: Icons.event,
-            text: 'Events',
+            icon: Icons.workspaces_filled,
+            text: 'Molar Mass',
             onTap: () =>
-                Navigator.pushReplacementNamed(context, SecondScreen.routeName),
+                Navigator.pushReplacementNamed(context, MolarMass.routeName),
+          ),
+          _createDrawerItem(
+            icon: Icons.apps,
+            text: 'Grams <-> Moles',
+            onTap: () => Navigator.pushReplacementNamed(
+                context, GramsMolesCalculator.routeName),
           ),
           _createDrawerItem(
             icon: Icons.note,
@@ -38,7 +46,7 @@ class AppDrawer extends StatelessWidget {
           Divider(),
           _createDrawerItem(icon: Icons.bug_report, text: 'Report an issue'),
           ListTile(
-            title: Text('0.0.1'),
+            title: Text(AppInfo.instance.version),
             onTap: () {},
           ),
         ],

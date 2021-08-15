@@ -108,7 +108,7 @@ jobs:
       - name: Add APK to release
         uses: softprops/action-gh-release@v1
         with:
-          prerelease: true
+          prerelease: false
           files: |
             app-release.apk
         env:

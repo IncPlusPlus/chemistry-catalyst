@@ -1,10 +1,10 @@
-import 'package:chem_catalyst/widget/ElementSuggestion.dart';
+// import 'package:chem_catalyst/widget/element_picker.dart';
 import 'package:chem_catalyst/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:periodic_table/periodic_table.dart';
 
 class TextScreen extends StatefulWidget {
-  static const String routeName = '/3';
+  static const String routeName = '/99';
 
   @override
   _TextScreenState createState() => _TextScreenState();
@@ -50,7 +50,7 @@ class _TextScreenState extends State<TextScreen> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            ElementWidget(updateParentFunction: updateElement),
+            // ElementWidget(updateParentFunction: updateElement),
             Text("Selected element is ${element?.name ?? "empty"}"),
             TextField(
               onChanged: (text) {
