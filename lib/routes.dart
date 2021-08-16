@@ -7,6 +7,6 @@ class Routes {
     MolarMass.routeName: (context) => const MolarMass(),
     GramsMolesCalculator.routeName: (context) => const GramsMolesCalculator(),
     SolutionsAndMolarity.routeName: (context) => const SolutionsAndMolarity(),
-    TextScreen.routeName: (context) => TextScreen(),
+    // TextScreen.routeName: (context) => TextScreen(),
   };
 }
