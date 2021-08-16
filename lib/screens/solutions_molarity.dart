@@ -69,6 +69,13 @@ class _SolutionsAndMolarityState extends State<SolutionsAndMolarity> {
         ),
         appBar: AppBar(
           title: Text("Solutions & Molarity"),
+          actions: [
+            IconButton(
+              onPressed: () => _clearAllFields(),
+              icon: const Icon(Icons.clear),
+              tooltip: 'Clear all inputs',
+            ),
+          ],
         ),
         drawer: AppDrawer(),
         body: Column(
@@ -355,6 +362,16 @@ class _SolutionsAndMolarityState extends State<SolutionsAndMolarity> {
         volumeController.text = '';
         break;
     }
+  }
+
+  _clearAllFields() {
+    setState(() {
+      massController.text = '';
+      concentrationController.text = '';
+      volumeController.text = '';
+      elements = [];
+      _setMolarMass();
+    });
   }
 }
 
