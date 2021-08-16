@@ -121,7 +121,7 @@ class _GramsMolesCalculatorState extends State<GramsMolesCalculator> {
           Padding(
             padding: EdgeInsets.all(20),
             child: AutoSizeText(
-              'You have ${calculatingFromGrams ? _calculateMolesFromGrams(elements, currentCalculationNumber) : _calculateGramsFromMoles(elements, currentCalculationNumber)} ${calculatingFromGrams ? "moles" : "grams"} of ${elements.isEmpty ? '...' : compoundFormulaString(elements)}',
+              'You have ${calculatingFromGrams ? _calculateMolesFromGrams(elements, currentCalculationNumber) : _calculateGramsFromMoles(elements, currentCalculationNumber)} ${calculatingFromGrams ? "moles" : "grams"} of ${calculateMolarMass(elements) == Decimal.zero ? '...' : compoundFormulaString(elements)}',
               style: TextStyle(fontSize: 24),
               textAlign: TextAlign.center,
             ),
@@ -136,7 +136,7 @@ class _GramsMolesCalculatorState extends State<GramsMolesCalculator> {
               keyboardType: TextInputType.numberWithOptions(decimal: true),
               decoration: InputDecoration(
                 labelText:
-                    'Amount of ${elements.isEmpty ? '...' : compoundFormulaString(elements)} in ${calculatingFromGrams ? "grams" : "moles"}',
+                    'Amount of ${calculateMolarMass(elements) == Decimal.zero ? '...' : compoundFormulaString(elements)} in ${calculatingFromGrams ? "grams" : "moles"}',
                 errorText: invalidInputNumber
                     ? 'Invalid input. Try a normal number.'
                     : null,
