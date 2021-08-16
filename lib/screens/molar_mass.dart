@@ -1,11 +1,10 @@
 import 'package:chem_catalyst/model/element_item.dart';
-import 'package:chem_catalyst/widget/element_picker.dart';
+import 'package:chem_catalyst/util/calculation_helpers.dart';
 import 'package:chem_catalyst/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:periodic_table/periodic_table.dart';
 import 'package:more/tuple.dart';
-import 'package:decimal/decimal.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 
 class MolarMass extends StatefulWidget {
@@ -62,7 +61,7 @@ class _MolarMassState extends State<MolarMass> {
           Padding(
             padding: EdgeInsets.all(20),
             child: AutoSizeText(
-              "Molar mass is ${_calculateMolarMass(elements)} g/mol",
+              "Molar mass is ${calculateMolarMass(elements)} g/mol",
               style: TextStyle(fontSize: 24),
               textAlign: TextAlign.center,
             ),
@@ -113,14 +112,4 @@ class _MolarMassState extends State<MolarMass> {
       ),
     );
   }
-}
-
-Decimal _calculateMolarMass(
-    List<Tuple2<ChemicalElement, int>> elementsAndQuantities) {
-  Decimal out = Decimal.zero;
-  for (Tuple2<ChemicalElement, int> i in elementsAndQuantities) {
-    out += Decimal.parse(i.first.atomicMass.toString()) *
-        Decimal.fromInt(i.second);
-  }
-  return out;
 }
