@@ -97,6 +97,7 @@ class _SolutionsAndMolarityState extends State<SolutionsAndMolarity> {
                           elevation: 16,
                           underline: Container(
                             height: 2,
+                            color: Colors.blue,
                           ),
                           onChanged: (UnknownVariable? newValue) =>
                               setState(() {
