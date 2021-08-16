@@ -34,7 +34,12 @@ Decimal massOfSolute(
 /// solution (in molarity).
 Decimal concentrationOfSolution(
     Decimal massOfSolute, Decimal volume, Decimal molarMassOfSolute) {
-  return (massOfSolute / molarMassOfSolute) * volume;
+  try {
+    return (massOfSolute / molarMassOfSolute) * volume;
+  } catch (e) {
+    print(e);
+    return Decimal.zero;
+  }
 }
 
 /// For a solution given the [massOfSolute] in grams, the [concentration]
@@ -42,6 +47,11 @@ Decimal concentrationOfSolution(
 /// solution in liters.
 Decimal volumeOfSolution(
     Decimal massOfSolute, Decimal concentration, Decimal molarMassOfSolute) {
-  return massOfSolute / concentration / molarMassOfSolute;
+  try {
+    return massOfSolute / concentration / molarMassOfSolute;
+  } catch (e) {
+    print(e);
+    return Decimal.zero;
+  }
 }
 //</editor-fold>
