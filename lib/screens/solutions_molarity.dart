@@ -108,7 +108,7 @@ class _SolutionsAndMolarityState extends State<SolutionsAndMolarity> {
             ),
             Center(
               child: AutoSizeText(
-                "The ${solvingFor.name} of ${molarMass == Decimal.zero ? '...' : compoundFormulaString(elements)} is ${_getAnswerString()}",
+                "The required ${solvingFor.name} of ${molarMass == Decimal.zero ? '...' : compoundFormulaString(elements)} is ${_getAnswerString()}",
                 style: TextStyle(
                   color: Theme.of(context).unselectedWidgetColor,
                   fontSize: 20,
