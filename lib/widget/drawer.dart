@@ -1,6 +1,7 @@
 import 'package:chem_catalyst/screens.dart';
 import 'package:chem_catalyst/util/app_info.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 /// The app's drawer.
 /// Created following https://medium.com/flutter-community/flutter-vi-navigation-drawer-flutter-1-0-3a05e09b0db9
@@ -49,7 +50,11 @@ class AppDrawer extends StatelessWidget {
           // _createDrawerItem(icon: Icons.account_box, text: 'Flutter Documentation'),
           // _createDrawerItem(icon: Icons.stars, text: 'Useful Links'),
           Divider(),
-          _createDrawerItem(icon: Icons.bug_report, text: 'Report an issue'),
+          _createDrawerItem(
+              icon: Icons.bug_report,
+              text: 'Report an issue',
+              onTap: () => launch(
+                  'https://github.com/IncPlusPlus/chemistry-catalyst/issues/new/choose')),
           ListTile(
             title: Text(AppInfo.instance.version),
             onTap: () {},
