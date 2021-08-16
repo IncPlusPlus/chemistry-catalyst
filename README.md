@@ -35,7 +35,19 @@ To specify the element (which you may have observed is a required component for 
 ## Known issues
 See [here](https://github.com/IncPlusPlus/chemistry-catalyst/issues) for known issues. The biggest one right now is that the subscripts in empirical formulas turn into rectangles with an X through them. This doesn't happen in the Android app or if you access the website through a mobile device.
 
+## Important code / where the math gets done
+Because there are only a few tools, the mathy bits are fairly consolidated.
+
+### Molar mass calculations
+Molar mass is calculated at [lib/util/calculation_helpers.dart:10](https://github.com/IncPlusPlus/chemistry-catalyst/blob/main/lib/util/calculation_helpers.dart#L10). See the documentation and in-line comments there for details on what's going on.
+
+### Grams and Moles conversion
+The grams and moles calculation equations are located at the bottom of [lib/screens/grams_moles.dart:194](https://github.com/IncPlusPlus/chemistry-catalyst/blob/main/lib/screens/grams_moles.dart#L194). They don't have many annotations because they're so simple they're self-explanatory. The only other math done there is referencing the same `calculateMolarMass()` function used as mentioned above.
+
+### Solutions & Molarity calculations
+The molarity calculations are all done in the section labeled "Solutions and molarity" in [lib/util/calculation_helpers.dart:23](https://github.com/IncPlusPlus/chemistry-catalyst/blob/main/lib/util/calculation_helpers.dart#L23); The functions themselves are documented. However, there are no in-line comments making any special note of the equations. All the code here was derived from (and tested against) the equations found in [Section 6.3 (Molarity) of the textbook](https://openstax.org/books/chemistry-atoms-first-2e/pages/6-3-molarity). The variable naming should assist in understanding what's going on. 
+
 ## Retrospective and other tidbits
 This project was _way_ more ambitious than what I was actually capable of at the time. This semester was pretty rough for me in terms of my personal life. On top of that, I'm still super rusty with Flutter (the framework I used to build this app) which means that I was fiddling around a lot and learning while I coded. While this isn't a bad approach to learning, it's a bad approach to getting work done for an impending deadline.
 
-Overall, I'm satisfied with where I managed to get this project. In the next few days after the deadline, I might actually complete another tool or two just for fun.
+Overall, I'm satisfied with where I managed to get this project considering how inexperienced I am with making both functional and visually "nice-ish" apps. In the next few days after the deadline, I might actually complete another tool or two just for fun.
