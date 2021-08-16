@@ -35,20 +35,18 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'You have pushed the button this many times:',
+              'Open the navigation drawer and pick a tool.',
+              style: Theme.of(context).textTheme.headline4,
+              textAlign: TextAlign.center,
             ),
             Text(
-              '0 (this never increments. the button isn\'t hooked up to anything)',
-              style: Theme.of(context).textTheme.headline4,
+              'Go on! Off you go!',
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.headline6,
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => AlertDialog(),
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
