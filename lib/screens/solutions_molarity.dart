@@ -111,7 +111,7 @@ class _SolutionsAndMolarityState extends State<SolutionsAndMolarity> {
                 "The required ${solvingFor.name} of ${molarMass == Decimal.zero ? '...' : compoundFormulaString(elements)} is ${_getAnswerString()}",
                 style: TextStyle(
                   color: Theme.of(context).unselectedWidgetColor,
-                  fontSize: 20,
+                  fontSize: 18,
                 ),
                 textAlign: TextAlign.center,
               ),
