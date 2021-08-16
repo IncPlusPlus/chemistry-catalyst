@@ -194,6 +194,7 @@ class _GramsMolesCalculatorState extends State<GramsMolesCalculator> {
 Decimal _calculateMolesFromGrams(
     List<Tuple2<ChemicalElement, int>> elementsAndQuantities,
     Decimal amountInGrams) {
+  // Prevents a divide-by-zero error
   if (calculateMolarMass(elementsAndQuantities) == Decimal.zero) {
     return Decimal.zero;
   }
